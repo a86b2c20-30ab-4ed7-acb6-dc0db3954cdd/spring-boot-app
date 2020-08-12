@@ -31,5 +31,6 @@ after_success:
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
 deploy:
+  provider: heroku
   api_key:
     secure: $HEROKU_API_KEY
