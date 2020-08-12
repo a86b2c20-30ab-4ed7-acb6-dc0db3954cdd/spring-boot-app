@@ -13,7 +13,7 @@ addons:
       secure: "$SONAR_TOKEN"
 script:
 - "./mvnw clean install -B"
-- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent"
+- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=a86b2c20-30ab-4ed7-acb6-dc0db3954cdd_spring-boot-app"
 cache:
   directories:
   - "$HOME/.m2/repository"
@@ -28,6 +28,6 @@ after_success:
 - docker push $IMAGE_NAME
 deploy:
   provider: heroku
-  api_key:
-    app: springboot-app-123131
-    secure: z6n8W52e2Ja/Av2QFBltkUQ7XZ0D4L6vAyEOIEWKxpRpYsFVUy2b4TEdR+tTxNtxW+tv6rTQ5jLb2o2lW+42Hwq75BBzWqTumJbhQ2rvflYHwauuiXPZADCmDXkKyJAWmU6BZn36+gQJNsKhpaHLzg+uwg55MBkQ58w+vWu3mmvMYjOpm90Q3PzeTZHMHj8rpuWoiSCtL5GKdKoU+CyjGZzpRt17tEp5oCGs5wsM381v8e0TcOYnetOz+o4qF7gvsx9XuEwZtrK1BA9/z/tPt/oIzLvjO1dIeM8h6V4xb216XDejAbLRD/dL6x6m6seOs/MYVy6sI43Tn66ARHfOd1WE3JjmcTP+4Ekh2wPbpIFoznokNqbSnYY75KIOZO7reVqyYjusUSYeLYS1poXJxc2AzHW0nmQAGuH0tgVuzC3o2/nhe0kU5K7UaroFTIR/DSeOM0pVCAB4PdflbVmh+wTNkPO59IULEEtAKfQ+Oqa1Rf1uuiLqb/kNcUlkBil81uXpNeQoXqQVToE3BZb7pQqqPGQ6I8lZpMFSI4es0g2uYjV9X5ddPOU7rUY/ZPDul/m/lzqYDFEEq7/yNdtLD20HocjQSyPreNI1cKnNVYa8PG+8uov3L2vZn7fEvRYBmUjGvxehPvvOky6ZDaIIrlhjVjoSgqJgah6IzDXB99g=
+  api-key: 
+   secure: $HEROKU_API_KEY
+  app: thawing-hamlet-70143
